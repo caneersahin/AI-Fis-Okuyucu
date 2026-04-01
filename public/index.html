@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fiş & Fatura Okuyucu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blob blob-1"></div>
+    <div class="background-blob blob-2"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+            <h1>AI Fiş Okuyucu</h1>
+            <p>Fiş veya faturanızı yükleyin, yapay zeka KDV ve ürünleri saniyeler içinde analiz etsin.</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="dropZone">
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <div class="upload-content" id="uploadContent">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <h3>Görseli Buraya Sürükleyin</h3>
+                    <p>veya dosyalarınızdan seçin</p>
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Dosya Seç</button>
+                </div>
+                <div id="imagePreview" class="image-preview hidden">
+                    <img id="previewImg" src="" alt="Önizleme">
+                    <button class="btn-remove" id="removeImgBtn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button class="btn-scan hidden" id="scanBtn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Fişi Analiz Et
+                </button>
+                <div class="loader hidden" id="loader">
+                    <div class="spinner"></div>
+                    <p>Yapay zeka fişi inceliyor, lütfen bekleyin...</p>
+                </div>
+            </div>
+
+            <div class="result-section hidden" id="resultSection">
+                <h2>Analiz Sonucu</h2>
+                
+                <div class="result-card">
+                    <h3><i class="fa-solid fa-cart-shopping"></i> Satın Alınan Ürünler</h3>
+                    <div class="table-container">
+                        <table id="itemsTable">
+                            <thead>
+                                <tr>
+                                    <th>Ürün Adı</th>
+                                    <th class="text-right">Fiyat</th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="result-card kdv-card">
+                        <h3><i class="fa-solid fa-percent"></i> KDV Özeti</h3>
+                        <ul id="kdvList" class="kdv-list"></ul>
+                    </div>
+                    
+                    <div class="result-card total-card">
+                        <h3><i class="fa-solid fa-wallet"></i> Toplam Tutar</h3>
+                        <div class="total-amount" id="totalAmount">₺0.00</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
