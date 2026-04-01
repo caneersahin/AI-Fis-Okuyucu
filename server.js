@@ -48,7 +48,7 @@ KESİNLİKLE sadece aşağıdaki JSON formatında yanıt ver, markdown işaretle
 }`;
 
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-flash-latest",
+      model: "gemini-pro-latest",
       generationConfig: { responseMimeType: "application/json" }
     });
 
